@@ -25,7 +25,7 @@ def add_gene_click_listener(app):
 def add_gene_selected_listener(app):
 
     @app.callback(
-        Output("gene_mean_trace", "figure"),
+        Output("individual_gene_mean_trace", "figure"),
         [
             Input("individuality_gene_dropdown", "value")
         ]

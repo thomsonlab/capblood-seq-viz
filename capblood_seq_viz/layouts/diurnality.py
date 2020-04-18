@@ -31,7 +31,7 @@ def diurnality_layout():
                             dcc.Dropdown(
                                 id="diurnality_gene_dropdown",
                                 options=data.get_gene_options(),
-                                value=["DDIT4"],
+                                value=[],
                                 multi=False
                             )
                         ],
@@ -51,6 +51,9 @@ def diurnality_layout():
                             style={
                                 "width": "100%",
                                 "height": "100%"
+                            },
+                            config={
+                                "displayModeBar": False
                             }
                         ),
                         width=9
@@ -58,6 +61,27 @@ def diurnality_layout():
                 ],
                 style={
                     "height": "50%"
+                }
+            ),
+            dbc.Row(
+                [
+                    dbc.Col(
+                        dcc.Graph(
+                            id="diurnal_gene_mean_trace",
+                            figure={},
+                            style={
+                                "width": "100%",
+                                "height": "100%"
+                            },
+                            config={
+                                "displayModeBar": False
+                            }
+                        ),
+                        width=12
+                    ),
+                ],
+                style={
+                    "height": "35%"
                 }
             )
         ],

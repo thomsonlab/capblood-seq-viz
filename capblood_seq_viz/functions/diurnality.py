@@ -30,9 +30,22 @@ def add_gene_selected_listener(app):
             Input("diurnality_gene_dropdown", "value")
         ]
     )
-    def update_gene_dropdown(gene):
+    def update_gene_AM_PM_box_plots(gene):
 
         if gene is None:
             raise PreventUpdate
 
         return figures.diurnality.get_gene_AM_PM_box_plot(gene)
+
+    @app.callback(
+        Output("diurnal_gene_mean_trace", "figure"),
+        [
+            Input("diurnality_gene_dropdown", "value")
+        ]
+    )
+    def update_gene_diurnal_traces(gene):
+
+        if gene is None:
+            raise PreventUpdate
+
+        return figures.diurnality.get_gene_traces(gene)

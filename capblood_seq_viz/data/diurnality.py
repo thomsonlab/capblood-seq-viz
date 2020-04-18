@@ -29,7 +29,7 @@ def load_gene_diurnality():
 
         pickle_file_path = os.path.join(
             capblood_seq.get_dataset().data_directory,
-            "gene_AM_PM_means.pickle"
+            "gene_AM_PM_means_subject_normalized.pickle"
         )
 
         with open(pickle_file_path, "rb") as pickle_file:

@@ -30,7 +30,7 @@ def get_cell_tSNE_figure(group_by=data.Cell_Grouping.SUBJECT):
         if group_name is None:
             group_name = "Other"
 
-        scatter = graph_objects.Scatter(
+        scatter = graph_objects.Scattergl(
             x=cell_coordinates[:, 0],
             y=cell_coordinates[:, 1],
             mode="markers",

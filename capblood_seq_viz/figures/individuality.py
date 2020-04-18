@@ -14,7 +14,7 @@ def get_individuality_figure(threshold=None):
     colors = [config.CELL_TYPE_COLORS[cell_type] for
               cell_type in individuality_df["Max Cell Type"]]
 
-    scatter = graph_objects.Scatter(
+    scatter = graph_objects.Scattergl(
         x=numpy.log2(individuality_df["Cell Type F Statistic"]),
         y=numpy.log2(individuality_df["By Cell Type F Statistic"]),
         mode="markers",
@@ -108,7 +108,7 @@ def get_gene_traces(gene):
         }
 
         if cell_type_index == 0:
-            layout[y_axis_long_name]["title"] = "Mean expression"
+            layout[y_axis_long_name]["title"] = "Mean Abundance"
 
         x_axis_index += 1
         x_axis_short_name = "x%i" % x_axis_index
@@ -122,6 +122,12 @@ def get_gene_traces(gene):
 
     layout["plot_bgcolor"] = "rgba(255, 255, 255, 0)"
     layout["paper_bgcolor"] = "rgba(255, 255, 255, 0)"
+    layout["title"] = {
+        "text": "%s Expression Over Time" % gene,
+        "xanchor": "center",
+        "xref": "container",
+        "x": 0.5
+    }
 
     figure = graph_objects.Figure(data=traces, layout=layout)
 
