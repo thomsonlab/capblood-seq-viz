@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='capblood-seq-viz',
-    version='0.2.1',
+    version='0.2.2',
     description='Interactive visualization web app for capillary blood data',
     url='https://github.com/ThomsonLab/capblood-seq-viz',
     author='David Brown',
@@ -10,6 +10,7 @@ setup(
     license='MIT',
     packages=[
         "capblood_seq_viz",
+        "capblood_seq_viz.data",
         "capblood_seq_viz.config",
         "capblood_seq_viz.layouts",
         "capblood_seq_viz.assets",
