@@ -157,11 +157,14 @@ def get_pathway_enrichment(num_top_genes=250):
 
     for pathway in pathway_set:
 
-        if pathway not in diurnal_pathway_counts or pathway not in \
-                nondiurnal_pathway_counts or pathway not in \
-                individual_pathway_counts or pathway not in \
-                nonindividual_pathway_counts:
-            continue
+        if pathway not in diurnal_pathway_counts:
+            diurnal_pathway_counts[pathway] = 0
+        if pathway not in nondiurnal_pathway_counts:
+            nondiurnal_pathway_counts[pathway] = 0
+        if pathway not in individual_pathway_counts:
+            individual_pathway_counts[pathway] = 0
+        if pathway not in nonindividual_pathway_counts:
+            nonindividual_pathway_counts[pathway] = 0
 
         pathway_list.append(pathway)
 
@@ -205,6 +208,15 @@ def get_pathway_enrichment(num_top_genes=250):
                 x_values.append(pathway_individual_enrichments[pathway_index])
                 y_values.append(pathway_diurnal_enrichments[pathway_index])
                 text_labels.append(pathway)
+
+        if class_label not in diurnal_label_counts:
+            diurnal_label_counts[class_label] = 0
+        if class_label not in nondiurnal_label_counts:
+            nondiurnal_label_counts[class_label] = 0
+        if class_label not in individual_label_counts:
+            individual_label_counts[class_label] = 0
+        if class_label not in nonindividual_label_counts:
+            nonindividual_label_counts[class_label] = 0
 
         individual_enrichment, _ = proportion.proportions_ztest(
             [
